@@ -1,9 +1,7 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 
 [Serializable]
 public class SerializableDic<TKey, TValue> : IEnumerable<KeyValuePair<TKey, TValue>>
