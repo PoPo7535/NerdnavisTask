@@ -14,89 +14,30 @@ using UnityEditor;
 
 public class CSVReadeer : MonoBehaviour
 {
-    public Dictionary<(ItemGrade, GachaRewardItemType), (int, int)> GachaRandomBag;
-    [ReadOnly] public SerializableDictionary<int, ItemInfo> ItemDic;
-
+    public SerializableDic<int, ItemInfo> ItemDic;
+    public SerializableDicInList<GachaKey, GachaValue> gachaBag;
     private void Awake()
     {
         ItemDic.Build();
     }
 }
 
-[Serializable]
-public class SerializableDictionary<TKey ,TValue> : IEnumerable<KeyValuePair<TKey, TValue>>
-{
-    [Serializable]
-    public struct Pair
-    {
-        public TKey key;
-        public TValue value;
-    }
 
-    [SerializeField] private List<Pair> Dictionary;
-    private Dictionary<TKey, TValue> dic = new();
-    public void Build()
-    {
-        foreach (var pair in Dictionary)
-        {
-            dic.TryAdd(pair.key, pair.value);
-        }
-    }
-
-
-    public void Clear()
-    {
-        dic.Clear();
-        Dictionary.Clear();
-    }
-    public void Add(TKey key, TValue value)
-    {
-        if (Application.isPlaying)
-            return;
-
-        Dictionary.Add(new Pair()
-        {
-            key = key,
-            value = value
-        });
-    }
-
-    public bool ContainsKey(TKey key) => dic.ContainsKey(key);
-    public bool TryGetValue(TKey key, out TValue value)
-    {
-        value = dic.TryGetValue(key ,out var newVal) ? newVal : default;
-        return dic.ContainsKey(key);
-    }
-
-    public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
-    {
-        return dic.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return dic.GetEnumerator();
-    }
-}
 #if UNITY_EDITOR
 [CustomEditor(typeof(CSVReadeer))]
 public class CSVReadeerInspector : Editor
 {
     public override void OnInspectorGUI()
     {
-        // 기본 인스펙터 표시
         DrawDefaultInspector();
 
-        // 대상 스크립트를 가져옵니다.
         var myScript = (CSVReadeer)target;
-        // 버튼 추가
         if (GUILayout.Button("Set Item List"))
         {
             myScript.ItemDic.Clear();
 
-            // myScript.ItemList = new StringIntPair<int, ItemInfo>();
-            string csvFilePath = "Assets/2.Data/ItemList.csv";
-            string[] lines = File.ReadAllLines(csvFilePath);
+            var csvFilePath = "Assets/2.Data/ItemList.csv";
+            var lines = File.ReadAllLines(csvFilePath);
             for (var i = 2; i < lines.Length; ++i)
             {
                 var output = lines[i];
@@ -106,8 +47,32 @@ public class CSVReadeerInspector : Editor
                     grade = Enum.Parse<ItemGrade>(str[1]),
                     type = Enum.Parse<ItemOptionType>(str[2]),
                     defaultValue = int.Parse(str[3]),
-                    IconPath = str[4],
+                    IconPath = $"3.{str[4]}",
                 });
+            }
+        }
+        
+        if (GUILayout.Button("Set Gacha Bag"))
+        {
+            myScript.gachaBag.Clear();
+
+            var csvFilePath = "Assets/2.Data/GachaRandomBag.csv";
+            var lines = File.ReadAllLines(csvFilePath);
+            for (var i = 2; i < lines.Length; ++i)
+            {
+                var output = lines[i];
+                var str = output.Split(',').ToArray();
+                myScript.gachaBag.Add(
+                    new GachaKey() 
+                    {
+                        dropID = int.Parse(str[0]),
+                        grade = Enum.Parse<ItemGrade>(str[1]),
+                    }, 
+                    new GachaValue() 
+                    {
+                        type = Enum.Parse<ItemType>(str[2]),
+                        itemID = int.Parse(str[3]),
+                    });
             }
         }
     }
@@ -123,7 +88,19 @@ public struct ItemInfo
     public int defaultValue;
     public string IconPath;
 }
-public enum GachaRewardItemType
+[Serializable]
+public struct GachaKey
+{
+    public int dropID;
+    public ItemGrade grade;
+}
+[Serializable]
+public struct GachaValue
+{
+    public ItemType type;
+    public int itemID;
+}
+public enum ItemType
 {
     Weapon,
     Armor,
