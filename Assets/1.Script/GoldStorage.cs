@@ -9,9 +9,6 @@ public class GoldStorage : MonoBehaviour
     public void AddGold(float addGold)
     {
         gold += addGold;
-        Debug.Log(gold);
-        text.text = $"{Utility.FormatNumber(gold)}";
+        text.text = Utility.FormatNumber(gold);
     }
-
-
 }

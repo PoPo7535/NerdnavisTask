@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 38582828}
   - component: {fileID: 38582827}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Defense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 186681511}
   - component: {fileID: 186681510}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: HP Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 220624751}
   - component: {fileID: 220624750}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Attack Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -991,8 +991,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: 0}
-  m_SizeDelta: {x: 100, y: 0}
+  m_AnchoredPosition: {x: -120, y: 0}
+  m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383426856
 MonoBehaviour:
@@ -1226,7 +1226,7 @@ GameObject:
   - component: {fileID: 468180604}
   - component: {fileID: 468180603}
   m_Layer: 5
-  m_Name: PlayerBG
+  m_Name: Player BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1303,7 +1303,7 @@ GameObject:
   - component: {fileID: 472111950}
   - component: {fileID: 472111949}
   m_Layer: 5
-  m_Name: Image
+  m_Name: PlayerGold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1554,8 +1554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 30, y: 0}
+  m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &544539984
 MonoBehaviour:
@@ -1604,14 +1604,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 70
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1666,7 +1666,7 @@ GameObject:
   - component: {fileID: 688690906}
   - component: {fileID: 688690905}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BattlePower Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1816,6 +1816,7 @@ GameObject:
   - component: {fileID: 874137977}
   - component: {fileID: 874137976}
   - component: {fileID: 874137978}
+  - component: {fileID: 874137979}
   m_Layer: 0
   m_Name: GameMamager
   m_TagString: Untagged
@@ -2228,6 +2229,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gold: 0
   csvReadeer: {fileID: 0}
+--- !u!114 &874137979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874137975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bbfa50d197d5064d98263383adbf91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battlePowerText: {fileID: 1113798332}
+  hpText: {fileID: 186681510}
+  defenseText: {fileID: 1293691942}
+  attackText: {fileID: 220624750}
+  goldText: {fileID: 927104386}
 --- !u!1 &927104384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,7 +2258,7 @@ GameObject:
   - component: {fileID: 927104387}
   - component: {fileID: 927104386}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Gold Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2376,7 +2394,7 @@ GameObject:
   - component: {fileID: 1051529833}
   - component: {fileID: 1051529832}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BattlePower Title Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2834,7 +2852,7 @@ GameObject:
   - component: {fileID: 1113798333}
   - component: {fileID: 1113798332}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BattlePower Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3102,7 +3120,7 @@ GameObject:
   - component: {fileID: 1126984971}
   - component: {fileID: 1126984970}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: BattlePower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3442,7 +3460,7 @@ GameObject:
   - component: {fileID: 1189437297}
   - component: {fileID: 1189437296}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TopBar Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3652,7 +3670,7 @@ GameObject:
   - component: {fileID: 1293691943}
   - component: {fileID: 1293691942}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Defense Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4129,7 +4147,7 @@ GameObject:
   - component: {fileID: 1622288531}
   - component: {fileID: 1622288530}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4864,7 +4882,7 @@ GameObject:
   - component: {fileID: 2082547955}
   - component: {fileID: 2082547954}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
