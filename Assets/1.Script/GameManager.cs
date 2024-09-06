@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager I;
     public int gold;
     public CSVReadeer csvReadeer;
+    public Player player;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         csvReadeer = GetComponent<CSVReadeer>();
+        player = GetComponent<Player>();
     }
 
     // Update is called once per frame
