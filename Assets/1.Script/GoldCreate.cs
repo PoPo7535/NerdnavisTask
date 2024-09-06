@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 public class GoldCreate : MonoBehaviour
 {
-    [FormerlySerializedAs("GoldStorage")] public GoldStorage goldStorage;
+    public GoldStorage goldStorage;
     public TMP_Text createText;
     public TMP_Text timerText;
     public float goldCreateTime = 1f;

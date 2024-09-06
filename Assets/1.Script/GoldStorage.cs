@@ -10,12 +10,8 @@ public class GoldStorage : MonoBehaviour
     {
         gold += addGold;
         Debug.Log(gold);
-        text.text = $"{gold:F1}";
+        text.text = $"{Utility.FormatNumber(gold)}";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

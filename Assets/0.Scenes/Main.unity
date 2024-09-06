@@ -437,6 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c443eedacf3301f4cb84e9c8fdcec138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gold: 0
   text: {fileID: 1358574446}
 --- !u!1 &123650365
 GameObject:
@@ -3832,7 +3833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '5000
+  m_text: '0
 
 '
   m_isRightToLeft: 0
