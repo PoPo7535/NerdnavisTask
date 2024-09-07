@@ -24,7 +24,7 @@ public class GoldStorage : MonoBehaviour
         ActiveGetBtn();
     }
 
-    public void GetGold()
+    private void GetGold()
     {
         GameManager.I.player.AddGold((int)gold);
         gold = 0;

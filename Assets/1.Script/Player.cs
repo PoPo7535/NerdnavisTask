@@ -26,12 +26,6 @@ public class Player : MonoBehaviour
         defenseText.text = Utility.FormatNumber(defense);
         hpText.text = Utility.FormatNumber(hp);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     public void AddGold(int addGold)
     {

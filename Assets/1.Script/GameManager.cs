@@ -25,9 +25,4 @@ public class GameManager : MonoBehaviour
         csvReadeer = GetComponent<CSVReadeer>();
         player = GetComponent<Player>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 }
