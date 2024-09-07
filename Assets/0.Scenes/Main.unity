@@ -1006,6 +1006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181834258}
   - component: {fileID: 181834259}
+  - component: {fileID: 181834260}
   m_Layer: 5
   m_Name: EquipmentTab
   m_TagString: Untagged
@@ -1047,7 +1048,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowSwitchOff: 1
+  m_AllowSwitchOff: 0
+--- !u!114 &181834260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181834257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7469225adeab8f64d98338cb370358a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponToggle: {fileID: 2059283419}
+  weaponBG: {fileID: 2059283417}
+  armorToggle: {fileID: 1642968265}
+  armorBG: {fileID: 1642968263}
+  shieldToggle: {fileID: 1078097116}
+  shieldBG: {fileID: 1078097114}
 --- !u!1 &185342758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,7 +1082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &185342759
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5636,7 +5655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1488099848
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5707,10 +5726,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1550148460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 04eef1dbcfceb284b888f2c027b424e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowSwitchOff: 1
+  gacha1Btn: {fileID: 973317135}
+  gacha10Btn: {fileID: 1182423252}
+  gacha100Btn: {fileID: 543208572}
 --- !u!1 &1556568305
 GameObject:
   m_ObjectHideFlags: 0

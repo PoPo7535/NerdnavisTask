@@ -15,7 +15,17 @@ public class Player : MonoBehaviour
     private int hp;
     private int defense;
     private int attack;
-    private int gold = 500;
+    private int _gold = 500;
+
+    public int gold
+    {
+        get => _gold;
+        set
+        {
+            _gold = value;
+            goldText.text = Utility.FormatNumber(_gold);
+        }
+    }
 
 
     void Start()
@@ -26,12 +36,7 @@ public class Player : MonoBehaviour
         defenseText.text = Utility.FormatNumber(defense);
         hpText.text = Utility.FormatNumber(hp);
     }
-    
-    public void AddGold(int addGold)
-    {
-        gold += addGold;
-        goldText.text = Utility.FormatNumber(gold);
-    }
+
     public void AddAttack(int addAttack)
     {
         attack += addAttack;

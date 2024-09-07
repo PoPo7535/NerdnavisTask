@@ -26,7 +26,7 @@ public class GoldStorage : MonoBehaviour
 
     private void GetGold()
     {
-        GameManager.I.player.AddGold((int)gold);
+        GameManager.I.player.gold += (int)gold;
         gold = 0;
         text.text = Utility.FormatNumber(gold);
         ActiveGetBtn();
