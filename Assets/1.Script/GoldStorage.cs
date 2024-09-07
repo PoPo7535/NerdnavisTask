@@ -7,7 +7,6 @@ public class GoldStorage : MonoBehaviour
 {
     public TMP_Text text;
     public Button goldGetBtn;
-    public Image bg;
     public GameObject arrowBox;
     
     private float gold;
@@ -35,18 +34,9 @@ public class GoldStorage : MonoBehaviour
     
     private void ActiveGetBtn()
     {
-        if (100 <= gold)
-        {
-            goldGetBtn.interactable = true;
-            bg.color=Color.yellow;
-            arrowBox.SetActive(true);
-        }
-        else
-        {
-            goldGetBtn.interactable = false;
-            bg.color = Color.gray;
-            arrowBox.SetActive(false);
-        }
+        var active = 100 <= gold;
+        goldGetBtn.interactable = active;
+        arrowBox.SetActive(active);
     }
 
 #if UNITY_EDITOR

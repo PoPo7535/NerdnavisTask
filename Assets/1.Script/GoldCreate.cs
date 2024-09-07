@@ -13,22 +13,26 @@ public class GoldCreate : MonoBehaviour
     public float goldAmount = 0.75f;
     private float time = 0f;
     private double lastEnable;
+    private Coroutine cor;
     private void OnEnable()
     {
+        cor = StartCoroutine(CreateTextChange());
         var disableTime = Time.unscaledTime - lastEnable;
-        if (disableTime == 0)
-            return;
-        Foo((int)(disableTime / time));
+        if (disableTime != 0)
+        {
+            Foo((int)(disableTime / time));
+        }
     }
 
     private void Start()
     {
-        StartCoroutine(CreateTextChange());
+        
     }
 
     private void OnDisable()
     {
         lastEnable = Time.unscaledTime;
+        StopCoroutine(cor);
     }
 
     private void Update()
