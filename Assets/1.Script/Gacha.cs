@@ -30,6 +30,11 @@ public class Gacha : MonoBehaviour
         });
     }
 
+    public void Foo()
+    {
+        // GameManager.I.csvReadeer.gachaBag
+    }
+
     private void OnEnable()
     {
         SetActiveBtn();

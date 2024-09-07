@@ -13,7 +13,7 @@ public class SerializableDic<TKey, TValue> : IEnumerable<KeyValuePair<TKey, TVal
         public TValue value;
     }
 
-    [SerializeField] private List<Pair> Dictionary;
+    [SerializeField] private List<Pair> Dictionary = new();
     private Dictionary<TKey, TValue> dic = new();
 
     public void Build()

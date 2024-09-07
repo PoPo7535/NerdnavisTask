@@ -3011,6 +3011,8 @@ MonoBehaviour:
       value:
         type: 2
         itemID: 310
+  gachaGradeInfo:
+    Dictionary: []
 --- !u!4 &874137977
 Transform:
   m_ObjectHideFlags: 0

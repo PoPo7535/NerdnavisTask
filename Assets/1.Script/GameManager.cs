@@ -6,7 +6,12 @@ public class GameManager : MonoBehaviour
     public int gold;
     public CSVReadeer csvReadeer;
     public Player player;
-
+    
+    public int refillMoneyInterval;
+    public float refillMoneyCount;
+    public int defaultMoneyCount;
+    public int requireGachaPrice;
+    public int maxMoneyLimit;
     private void Awake()
     {
         if (I == null)
