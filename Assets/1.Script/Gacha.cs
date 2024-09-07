@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Gacha : MonoBehaviour
 {
-    private const int GachaValue = 100;
     public Button gacha1Btn;
     public Button gacha10Btn;
     public Button gacha100Btn;
@@ -15,17 +14,29 @@ public class Gacha : MonoBehaviour
     {
         gacha1Btn.onClick.AddListener(() =>
         {
-            GameManager.I.player.gold -= GachaValue;
+            GM.I.player.gold -= GM.I.requireGachaPrice;
+            if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(10000, out var gachaRate))
+            {
+                var grade = gachaRate.GetRandomItemGrade();
+                if (GM.I.csvReadeer.gachaBag.TryGetValue(new GachaKey()
+                    {
+                        grade = grade,
+                        dropID = gachaRate.gachaRandombagID
+                    }, out var gachaValues))
+                {
+                    var asd = GM.I.player.inventory[gachaValues[0].type];
+                };
+            }
             SetActiveBtn();
         });
         gacha10Btn.onClick.AddListener(() =>
         {
-            GameManager.I.player.gold -= GachaValue * 10; 
+            GM.I.player.gold -= GM.I.requireGachaPrice * 10; 
             SetActiveBtn();
         });
         gacha100Btn.onClick.AddListener(() =>
         {
-            GameManager.I.player.gold -= GachaValue * 100; 
+            GM.I.player.gold -= GM.I.requireGachaPrice * 100; 
             SetActiveBtn();
         });
     }
@@ -42,8 +53,8 @@ public class Gacha : MonoBehaviour
 
     private void SetActiveBtn()
     {
-        gacha1Btn.interactable = GameManager.I.player.gold >= GachaValue;
-        gacha10Btn.interactable = GameManager.I.player.gold >= GachaValue * 10;
-        gacha100Btn.interactable = GameManager.I.player.gold >= GachaValue * 100; 
+        gacha1Btn.interactable = GM.I.player.gold >= GM.I.requireGachaPrice;
+        gacha10Btn.interactable = GM.I.player.gold >= GM.I.requireGachaPrice * 10;
+        gacha100Btn.interactable = GM.I.player.gold >= GM.I.requireGachaPrice * 100; 
     }
 }

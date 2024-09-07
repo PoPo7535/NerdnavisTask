@@ -124,7 +124,7 @@ public class CSVReadeerInspector : Editor
         {
             var csvFilePath = "Assets/2.Data/GlobalValue.csv";
             var lines = File.ReadAllLines(csvFilePath);
-            var gameManager = myScript.GetComponent<GameManager>();
+            var gameManager = myScript.GetComponent<GM>();
             gameManager.refillMoneyInterval = int.Parse(lines[2].Split(',')[1]);
             gameManager.refillMoneyCount = float.Parse(lines[3].Split(',')[1]);
             gameManager.defaultMoneyCount = int.Parse(lines[4].Split(',')[1]);
@@ -173,7 +173,7 @@ public struct GachaRate
     public int epicRate;
     public int gachaRandombagID;
 
-    public ItemGrade GetItemGrade()
+    public ItemGrade GetRandomItemGrade()
     {
         var val = Random.Range(1, 100);
         if (val <= normalRate)

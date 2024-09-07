@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Dictionary<ItemType, Dictionary<int, int>> inventory = new();
+    public Dictionary<ItemType, HashSet<int>> inventory = new();
     
     public TMP_Text battlePowerText;
     public TMP_Text hpText;
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private int hp;
     private int defense;
     private int attack;
-    private int _gold = 500;
+    private int _gold;
 
     public int gold
     {
@@ -31,15 +31,17 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        gold = GM.I.defaultMoneyCount;
+        
         battlePowerText.text = Utility.FormatNumber(BattlePower);
         goldText.text = Utility.FormatNumber(gold);
         attackText.text = Utility.FormatNumber(attack);
         defenseText.text = Utility.FormatNumber(defense);
         hpText.text = Utility.FormatNumber(hp);
 
-        inventory.Add(ItemType.Armor, new Dictionary<int, int>());
-        inventory.Add(ItemType.Shield, new Dictionary<int, int>());
-        inventory.Add(ItemType.Weapon, new Dictionary<int, int>());
+        inventory.Add(ItemType.Armor,  new HashSet<int>());
+        inventory.Add(ItemType.Shield, new HashSet<int>());
+        inventory.Add(ItemType.Weapon, new HashSet<int>());
     }
 
     public void AddAttack(int addAttack)

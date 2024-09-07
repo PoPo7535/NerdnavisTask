@@ -2,15 +2,13 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 public class GoldCreate : MonoBehaviour
 {
     public GoldStorage goldStorage;
     public TMP_Text createText;
     public TMP_Text timerText;
-    public float goldCreateTime = 1f;
-    public float goldAmount = 0.75f;
+    private float refillMoneyInterval = 1f;
+    private float refillMoneyCount = 0.75f;
     private float time = 0f;
     private double lastEnable;
     private Coroutine cor;
@@ -26,7 +24,8 @@ public class GoldCreate : MonoBehaviour
 
     private void Start()
     {
-        
+        refillMoneyInterval = GM.I.refillMoneyInterval;
+        refillMoneyCount = GM.I.refillMoneyCount;
     }
 
     private void OnDisable()
@@ -38,10 +37,10 @@ public class GoldCreate : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
-        while(goldCreateTime <= time)
+        while(refillMoneyInterval <= time)
         {
-            time -= goldCreateTime;
-            goldStorage.AddGold(goldAmount);
+            time -= refillMoneyInterval;
+            goldStorage.AddGold(refillMoneyCount);
         }
         timerText.text = $"{time:F1}s";
     }
@@ -60,6 +59,6 @@ public class GoldCreate : MonoBehaviour
     }
     private void Foo(float gold)
     {
-        goldStorage.AddGold(goldAmount * gold);
+        goldStorage.AddGold(refillMoneyCount * gold);
     }
 }

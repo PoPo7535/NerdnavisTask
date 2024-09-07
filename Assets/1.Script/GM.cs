@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GM : MonoBehaviour
 {
-    public static GameManager I;
+    public static GM I;
     public int gold;
     public CSVReadeer csvReadeer;
     public Player player;
