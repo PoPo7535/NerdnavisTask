@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +16,5 @@ public class ItemSlot : MonoBehaviour
         icon.sprite = iconSpr;
         gradeColorImg.color = gradeColor;
         levelText.text = $"Lv.{level}";
-        
-
     }
 }
