@@ -19,7 +19,7 @@ public class Gacha : MonoBehaviour
             GM.I.player.gold -= GM.I.requireGachaPrice;
             if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaID, out var gachaRate))
                 ExecuteGacha(gachaRate, 1);
-            inventory.SetInventory(ItemType.Armor);
+            inventory.SetInventory(ItemType.Weapon);
             SetActiveBtn();
         });
         gacha10Btn.onClick.AddListener(() =>
@@ -27,7 +27,7 @@ public class Gacha : MonoBehaviour
             GM.I.player.gold -= GM.I.requireGachaPrice * 10; 
             if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaID, out var gachaRate))
                 ExecuteGacha(gachaRate, 10);
-            inventory.SetInventory(ItemType.Armor);
+            inventory.SetInventory(ItemType.Weapon);
             SetActiveBtn();
         });
         gacha100Btn.onClick.AddListener(() =>
@@ -35,7 +35,7 @@ public class Gacha : MonoBehaviour
             GM.I.player.gold -= GM.I.requireGachaPrice * 100; 
             if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaID, out var gachaRate))
                 ExecuteGacha(gachaRate, 100);
-            inventory.SetInventory(ItemType.Armor);
+            inventory.SetInventory(ItemType.Weapon);
             SetActiveBtn();
         });
     }

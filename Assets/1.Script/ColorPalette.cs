@@ -13,9 +13,9 @@ public static class ColorPalette
     {
         if (ColorUtility.TryParseHtmlString("#9DA8B6", out var normalColor))
             normalGrade = normalColor;
-        if (ColorUtility.TryParseHtmlString("#9DA8B6", out var rareColor))
+        if (ColorUtility.TryParseHtmlString("#30AF52", out var rareColor))
             rareGrade = rareColor;
-        if (ColorUtility.TryParseHtmlString("#9DA8B6", out var epicColor))
+        if (ColorUtility.TryParseHtmlString("#41AEEE", out var epicColor))
             epicGrade = epicColor;
     }
 
