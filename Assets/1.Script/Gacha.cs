@@ -10,7 +10,7 @@ public class Gacha : MonoBehaviour
     public Button gacha1Btn;
     public Button gacha10Btn;
     public Button gacha100Btn;
-
+    public Inventory inventory;
     private int gachaID = 10000;
     private void Start()
     {
@@ -19,6 +19,7 @@ public class Gacha : MonoBehaviour
             GM.I.player.gold -= GM.I.requireGachaPrice;
             if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaID, out var gachaRate))
                 ExecuteGacha(gachaRate, 1);
+            inventory.SetInventory(ItemType.Armor);
             SetActiveBtn();
         });
         gacha10Btn.onClick.AddListener(() =>
@@ -26,6 +27,7 @@ public class Gacha : MonoBehaviour
             GM.I.player.gold -= GM.I.requireGachaPrice * 10; 
             if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaID, out var gachaRate))
                 ExecuteGacha(gachaRate, 10);
+            inventory.SetInventory(ItemType.Armor);
             SetActiveBtn();
         });
         gacha100Btn.onClick.AddListener(() =>
@@ -33,15 +35,16 @@ public class Gacha : MonoBehaviour
             GM.I.player.gold -= GM.I.requireGachaPrice * 100; 
             if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaID, out var gachaRate))
                 ExecuteGacha(gachaRate, 100);
+            inventory.SetInventory(ItemType.Armor);
             SetActiveBtn();
         });
     }
 
-    private void ExecuteGacha(GachaRate gachaRate, int count)
+    private void ExecuteGacha(GachaRate gachaRate, int gachaCount)
     {
         var hash = new HashSet<int>();
         Dictionary<int, Item> dic = new();
-        for (int i = 0; i < count; ++i)
+        for (int i = 0; i < gachaCount; ++i)
         {
             var grade = gachaRate.GetRandomItemGrade();
             if (GM.I.csvReadeer.gachaBag.TryGetValue(new GachaKey()

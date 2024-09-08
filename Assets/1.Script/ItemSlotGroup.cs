@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemSlotGroup : MonoBehaviour
 {
     public ItemSlot[] slots;
 
-    public void SetSlotActive()
+    public void SetDisableSlot()
     {
         foreach (var slot in slots)
         {
@@ -14,9 +12,9 @@ public class ItemSlotGroup : MonoBehaviour
         }
     }
 
-    public void SetSlot(int slotNum)
+    public void SetSlot(Item item, int slotNum)
     {
         slots[slotNum].gameObject.SetActive(true);
+        slots[slotNum].SetItemSlot(item);
     }
-
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 #if UNITY_EDITOR
@@ -47,8 +48,8 @@ public class CSVReadeerInspector : Editor
                 {
                     grade = Enum.Parse<ItemGrade>(str[1]),
                     type = Enum.Parse<ItemOptionType>(str[2]),
-                    defaultValue = int.Parse(str[3]),
-                    IconPath = $"3.{str[4]}",
+                    defaultPower = int.Parse(str[3]),
+                    icon = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/3.{str[4]}.png"),
                 });
             }
         }
@@ -141,8 +142,8 @@ public struct ItemInfo
 {
     public ItemGrade grade;
     public ItemOptionType type;
-    public int defaultValue;
-    public string IconPath;
+    public int defaultPower;
+    public Sprite icon;
 }
 [Serializable]
 public struct GachaKey
