@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EquipmentTab : MonoBehaviour
 {
+    public Gacha gacha;
     public Toggle weaponToggle;
     public Image weaponBG;
     public Toggle armorToggle;
@@ -17,14 +16,26 @@ public class EquipmentTab : MonoBehaviour
         weaponToggle.onValueChanged.AddListener((isOn) =>
         {
             ChangeBGColor(weaponBG, isOn);
+            if (isOn)
+                gacha.activeTab = ItemType.Weapon;
+            gacha.inventory.SetInventory(ItemType.Weapon);
+            gacha.gachaKey = 10000;
         });
         armorToggle.onValueChanged.AddListener((isOn) =>
         {
             ChangeBGColor(armorBG, isOn);
+            if (isOn)
+                gacha.activeTab = ItemType.Armor;
+            gacha.inventory.SetInventory(ItemType.Armor);
+            gacha.gachaKey = 20000;
         });
         shieldToggle.onValueChanged.AddListener((isOn) =>
         {
             ChangeBGColor(shieldBG, isOn);
+            if (isOn)
+                gacha.activeTab = ItemType.Shield;
+            gacha.inventory.SetInventory(ItemType.Shield);
+            gacha.gachaKey = 30000;
         });
         
         ChangeBGColor(armorBG, false);

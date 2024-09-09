@@ -16,6 +16,10 @@ public class SerializableDic<TKey, TValue> : IEnumerable<KeyValuePair<TKey, TVal
     [SerializeField] private List<Pair> Dictionary = new();
     private Dictionary<TKey, TValue> dic = new();
 
+    public Dictionary<TKey, TValue>.KeyCollection GetKeys()
+    {
+        return dic.Keys;
+    }
     public void Build()
     {
         foreach (var pair in Dictionary)

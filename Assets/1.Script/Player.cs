@@ -44,21 +44,21 @@ public class Player : MonoBehaviour
         inventory.Add(ItemType.Weapon, new Dictionary<int, Item>());
     }
 
-    public void AddAttack(int addAttack)
+    public void SetAttackPower(int addAttack)
     {
-        attack += addAttack;
+        attack = addAttack;
         attackText.text = Utility.FormatNumber(attack);
         battlePowerText.text = Utility.FormatNumber(BattlePower);
     }
-    public void AddDefense(int addDefense)
+    public void SetDefensePower(int addDefense)
     {
-        defense += addDefense;
+        defense = addDefense;
         defenseText.text = Utility.FormatNumber(defense);
         battlePowerText.text = Utility.FormatNumber(BattlePower);
     }
-    public void AddHp(int addHp)
+    public void SetHpPower(int addHp)
     {
-        hp += addHp;
+        hp = addHp;
         hpText.text = Utility.FormatNumber(hp);
         battlePowerText.text = Utility.FormatNumber(BattlePower);
     }

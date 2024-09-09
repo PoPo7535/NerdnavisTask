@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -46,5 +47,28 @@ public class Inventory : MonoBehaviour
             var key = keyList[i];
             itemSlotGroups[i / 4].SetSlot(GM.I.player.inventory[type][key], i % 4);
         }
+
+        SetPlayerPower(type);
+    }
+
+    private void SetPlayerPower(ItemType type)
+    {
+        var power = GM.I.player.inventory[type].Values.Sum(item => item.power);
+        switch (type)
+        {
+            case ItemType.Weapon:
+                GM.I.player.SetAttackPower(power);
+                break;
+            case ItemType.Armor:
+                GM.I.player.SetDefensePower(power);
+                break;
+            case ItemType.Shield:
+                GM.I.player.SetHpPower(power);
+                break;
+            default:
+                GM.I.player.SetAttackPower(power);
+                break;
+        }
+        
     }
 }

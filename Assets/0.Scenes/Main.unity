@@ -1061,6 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7469225adeab8f64d98338cb370358a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gacha: {fileID: 1550148462}
   weaponToggle: {fileID: 2059283419}
   weaponBG: {fileID: 2059283417}
   armorToggle: {fileID: 1642968265}
@@ -3656,11 +3657,11 @@ RectTransform:
   - {fileID: 2013118106}
   m_Father: {fileID: 185342759}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 1050, y: 1450}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -40}
+  m_SizeDelta: {x: -30, y: -370}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1049298436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5920,6 +5921,8 @@ MonoBehaviour:
   gacha10Btn: {fileID: 1182423252}
   gacha100Btn: {fileID: 543208572}
   inventory: {fileID: 1049298438}
+  gachaKey: 10000
+  activeTab: 0
 --- !u!1 &1556568305
 GameObject:
   m_ObjectHideFlags: 0

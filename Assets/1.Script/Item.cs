@@ -26,7 +26,8 @@ public class Item
             if (count < cost)
             {
                 var addLevel = count / IOU[i].upgradeCost;
-                remainingCount = count%IOU[i].upgradeCost;
+                remainingCount = count % IOU[i].upgradeCost;
+                upGradeCost = IOU[i].upgradeCost;
                 power += addLevel * GetUpgradeValue(IOU[i]);
                 level += addLevel;
                 break;

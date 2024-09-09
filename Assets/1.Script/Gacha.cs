@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,31 +9,32 @@ public class Gacha : MonoBehaviour
     public Button gacha10Btn;
     public Button gacha100Btn;
     public Inventory inventory;
-    private int gachaID = 10000;
+    public int gachaKey = 10000;
+    public ItemType activeTab = ItemType.Weapon;
     private void Start()
     {
         gacha1Btn.onClick.AddListener(() =>
         {
             GM.I.player.gold -= GM.I.requireGachaPrice;
-            if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaID, out var gachaRate))
+            if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaKey, out var gachaRate))
                 ExecuteGacha(gachaRate, 1);
-            inventory.SetInventory(ItemType.Weapon);
+            inventory.SetInventory(activeTab);
             SetActiveBtn();
         });
         gacha10Btn.onClick.AddListener(() =>
         {
             GM.I.player.gold -= GM.I.requireGachaPrice * 10; 
-            if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaID, out var gachaRate))
+            if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaKey, out var gachaRate))
                 ExecuteGacha(gachaRate, 10);
-            inventory.SetInventory(ItemType.Weapon);
+            inventory.SetInventory(activeTab);
             SetActiveBtn();
         });
         gacha100Btn.onClick.AddListener(() =>
         {
             GM.I.player.gold -= GM.I.requireGachaPrice * 100; 
-            if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaID, out var gachaRate))
+            if (GM.I.csvReadeer.gachaGradeInfo.TryGetValue(gachaKey, out var gachaRate))
                 ExecuteGacha(gachaRate, 100);
-            inventory.SetInventory(ItemType.Weapon);
+            inventory.SetInventory(activeTab);
             SetActiveBtn();
         });
     }
