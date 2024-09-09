@@ -5,7 +5,7 @@ public class Item
     public int id;
     public int count;
     public ItemGrade grade;
-
+    public ItemType type;
     public int remainingCount;
     public int upGradeCost;
     public int power;

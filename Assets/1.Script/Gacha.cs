@@ -66,7 +66,8 @@ public class Gacha : MonoBehaviour
                     {
                         id = itemID,
                         count = 1,
-                        grade = grade
+                        grade = grade,
+                        type = gachaValues[randomVal].type
                     });
                 }
                 dic[itemID].SetLevelAndPower();

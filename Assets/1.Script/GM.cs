@@ -4,9 +4,9 @@ public class GM : MonoBehaviour
 {
     public static GM I;
     public int gold;
-    public CSVReadeer csvReadeer;
-    public Player player;
-    
+    [HideInInspector] public CSVReadeer csvReadeer;
+    [HideInInspector] public Player player;
+    public ItemSlotPopUp itemSlotPopUp;
     public int refillMoneyInterval;
     public float refillMoneyCount;
     public int defaultMoneyCount;

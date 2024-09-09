@@ -49,7 +49,7 @@ public class GoldStorage : MonoBehaviour
         guiStyle.normal.textColor = Color.green;
         if (GUI.Button(new Rect(50, 330, 200, 70), "AddGold", guiStyle)) 
         {
-            AddGold(500);
+            AddGold(5000);
         };
     }
 
