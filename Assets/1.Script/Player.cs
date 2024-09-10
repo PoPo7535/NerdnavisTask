@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -24,6 +25,8 @@ public class Player : MonoBehaviour
         set
         {
             _gold = value;
+            if (GM.I.maxMoneyLimit < _gold)
+                _gold = GM.I.maxMoneyLimit;
             goldText.text = Utility.FormatNumber(_gold);
         }
     }
